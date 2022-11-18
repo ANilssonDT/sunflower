@@ -42,6 +42,11 @@ jobs:
         with:
           name: assemble
           path: assemble.zip
+      - name: Upload to Data Theorem
+        uses: datatheorem/datatheorem-mobile-secure-action@v2.1.0
+        with:
+          UPLOAD_BINARY_PATH: "./app/build/outputs/apk/debug/app-debug.apk"
+          DT_UPLOAD_API_KEY: ${{ secrets.DT_UPLOAD_API_KEY }}
 #
 #  Disabling androidTest temporarily due to the stability issue b/251319989
 #  androidTest:
